@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pasindu Milinda — QA Automation Portfolio</title>
+<meta name="description" content="Portfolio of R.M. Pasindu Milinda Bandara, a Software Engineering undergraduate focused on QA Automation, Selenium, REST Assured, TestNG and API Testing.">
+<meta name="theme-color" content="#0a0b0f">
+<meta property="og:title" content="Pasindu Milinda — QA Automation Portfolio">
+<meta property="og:description" content="Software Engineering undergraduate focused on QA Automation, Selenium, REST Assured, TestNG and API Testing.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0b0f;--bg2:#10121a;--line:rgba(255,255,255,.09);--tx:#e8eaf0;--mu:#9aa0b2;--cy:#22d3ee;--vi:#8b5cf6;--g:linear-gradient(135deg,var(--cy),var(--vi));--mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;--sans:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--tx);font:400 1rem/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(700px 420px at 85% -5%,rgba(139,92,246,.16),transparent),radial-gradient(600px 420px at 0 25%,rgba(34,211,238,.1),transparent)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--cy);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+section{padding:96px 0}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;letter-spacing:-.02em;margin-bottom:12px}
+.lead{color:var(--mu);max-width:62ch;margin-bottom:44px}
+.tag-l{font:500 .8rem var(--mono);color:var(--cy);margin-bottom:10px;display:block}
+.sr{position:absolute;left:-999px}.sr:focus{left:12px;top:12px;z-index:99;background:#fff;color:#000;padding:8px 12px}
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(10,11,15,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{font:600 1.05rem var(--mono)}.logo b{background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+.links{display:flex;gap:6px;list-style:none;padding:0}
+.links a{display:block;padding:8px 14px;border-radius:999px;color:var(--mu);font-size:.92rem;transition:.2s}
+.links a span{font:.72rem var(--mono);color:var(--cy);margin-right:6px}
+.links a:hover,.links a.on{color:var(--tx);background:rgba(255,255,255,.06)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--tx);width:44px;height:44px;border-radius:10px;cursor:pointer}
+.burger i{display:block;width:18px;height:2px;background:currentColor;margin:4px auto;transition:.25s}
+.burger[aria-expanded=true] i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded=true] i:nth-child(2){opacity:0}
+.burger[aria-expanded=true] i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;font-weight:600;font-size:.95rem;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--tx);cursor:pointer;transition:.25s;min-height:46px}
+.btn:hover{border-color:rgba(34,211,238,.5);transform:translateY(-2px);box-shadow:0 8px 28px -10px rgba(34,211,238,.45)}
+.btn.p{background:var(--g);border-color:transparent;color:#06070a}
+.btn.p:hover{box-shadow:0 10px 32px -8px rgba(139,92,246,.7)}
+/* hero */
+.hero{padding:70px 0 90px;min-height:calc(100vh - 66px);display:flex;align-items:center}
+.hgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.name{font:500 .85rem var(--mono);color:var(--mu);letter-spacing:.06em;margin-bottom:18px}
+.role{display:inline-flex;align-items:center;gap:10px;padding:6px 14px;border:1px solid var(--line);border-radius:999px;font:500 .82rem var(--mono);color:var(--cy);background:rgba(34,211,238,.06);margin-bottom:22px}
+.role:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cy);box-shadow:0 0 10px var(--cy);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+h1{font-size:clamp(2.5rem,6.4vw,4.6rem);line-height:1.04;letter-spacing:-.035em;margin-bottom:22px}
+h1 em{font-style:normal;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--mu);font-size:1.1rem;max-width:52ch;margin-bottom:30px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.vis{display:flex;justify-content:center;align-items:center}.hterm{margin-top:34px}
+.photo{position:relative;width:min(340px,70vw);aspect-ratio:1;border-radius:50%;padding:4px;background:conic-gradient(from 0deg,var(--cy),var(--vi),var(--cy));animation:spin 8s linear infinite;box-shadow:0 0 50px -6px rgba(139,92,246,.55),0 0 90px -20px rgba(34,211,238,.5)}
+.photo>div{width:100%;height:100%;border-radius:50%;background:var(--bg2);display:grid;place-items:center;overflow:hidden;animation:spin 8s linear infinite reverse;position:relative}
+.photo span{font:600 3.6rem var(--sans);background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@keyframes spin{to{transform:rotate(360deg)}}
+.term{width:100%;max-width:440px;text-align:left;background:rgba(16,18,26,.8);border:1px solid var(--line);border-radius:14px;backdrop-filter:blur(10px);overflow:hidden;box-shadow:0 30px 60px -30px #000}
+.tbar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid var(--line);font:.75rem var(--mono);color:var(--mu)}
+.tbar i{width:10px;height:10px;border-radius:50%;background:#2a2e3b}.tbar span{margin-left:8px}
+.term pre{padding:16px 18px;font:.82rem/1.75 var(--mono);color:#c5cbe0;overflow-x:auto;white-space:pre}
+.term .ln{opacity:0;transition:opacity .35s}.term .ln.in{opacity:1}
+.k{color:#c4a7ff}.s{color:#67e8f9}.c{color:#6b7288}.cur{display:inline-block;width:8px;height:1em;background:var(--cy);vertical-align:-2px;animation:pulse 1s steps(2) infinite}
+/* cards */
+.glass{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(8px);transition:.3s}
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:28px}
+.about .glass{padding:30px}
+.about p+p{margin-top:14px}.about p{color:#c3c8d8}
+.facts{list-style:none;padding:0;display:grid;gap:16px}
+.facts li{display:flex;flex-direction:column;border-bottom:1px solid var(--line);padding-bottom:14px}
+.facts li:last-child{border:0;padding:0}
+.facts small{font:.75rem var(--mono);color:var(--cy)}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.cat{padding:26px}.cat:hover,.focus:hover{border-color:rgba(139,92,246,.5);transform:translateY(-4px)}
+.cat h3{font:500 .85rem var(--mono);color:var(--cy);margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0}
+.chips li,.tags span{padding:5px 12px;border:1px solid var(--line);border-radius:999px;font-size:.84rem;background:rgba(255,255,255,.03);color:#d5d9e6}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.focus{padding:26px}.focus h3{font-size:1.1rem;margin-bottom:8px}.focus p{color:var(--mu);font-size:.95rem}
+.focus .ic{width:38px;height:38px;border-radius:10px;background:var(--g);display:grid;place-items:center;margin-bottom:16px;color:#06070a;font:700 .9rem var(--mono)}
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.proj{padding:30px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.proj:before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:var(--g);opacity:.0;transition:.3s}
+.proj:hover{transform:translateY(-6px);border-color:rgba(34,211,238,.4);box-shadow:0 24px 60px -30px rgba(34,211,238,.45)}
+.proj:hover:before{opacity:1}
+.proj.main{background:linear-gradient(160deg,rgba(34,211,238,.07),rgba(139,92,246,.07) 60%,rgba(255,255,255,.02));border-color:rgba(139,92,246,.3)}
+.proj.side{grid-column:1/-1;padding:26px 30px}
+.ph{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;font:.78rem var(--mono)}
+.num{font-size:2.2rem;font-weight:700;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.type{color:var(--mu);border:1px solid var(--line);padding:4px 12px;border-radius:999px}
+.proj h3{font-size:1.45rem;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+.proj>p{color:#b7bdd0;margin-bottom:18px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.tags span{font:.76rem var(--mono);color:var(--cy);border-color:rgba(34,211,238,.25);background:rgba(34,211,238,.05)}
+.feat{list-style:none;padding:0;display:grid;gap:7px;margin-bottom:24px;font-size:.92rem;color:#c3c8d8}
+.feat li{padding-left:20px;position:relative}
+.feat li:before{content:"";position:absolute;left:0;top:.6em;width:8px;height:2px;background:var(--g)}
+.proj .btn{margin-top:auto;align-self:flex-start}
+.side .feat{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));column-gap:28px}
+.note{margin-top:14px;font-size:.85rem;color:var(--mu);border-left:2px solid var(--vi);padding-left:12px}
+/* timeline */
+.tl{position:relative;display:grid;gap:20px;padding-left:34px}
+.tl:before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--cy),var(--vi),transparent)}
+.ti{position:relative;padding:22px 26px}
+.ti:before{content:"";position:absolute;left:-34px;top:28px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:2px solid var(--cy)}
+.ti.go:before{background:var(--cy);box-shadow:0 0 12px var(--cy)}
+.ti small{font:.76rem var(--mono);color:var(--cy)}
+.ti h3{font-size:1.15rem;margin:4px 0 2px}.ti p{color:var(--mu);font-size:.95rem}
+.st{float:right;font:.72rem var(--mono);padding:3px 10px;border-radius:999px;border:1px solid var(--line);color:var(--mu)}
+.st.on{color:var(--cy);border-color:rgba(34,211,238,.4)}
+.sub2{font-size:1.05rem;margin:48px 0 18px;color:var(--mu);font-weight:500}
+.exp{padding:26px 30px;display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:start}
+.exp h3{font-size:1.15rem}.exp p{color:var(--mu)}
+.langs{margin-top:20px;color:var(--mu);font-size:.95rem}.langs b{color:var(--tx);font-weight:500}
+/* contact */
+.contact{text-align:center}
+.cbox{padding:64px 28px;background:linear-gradient(160deg,rgba(34,211,238,.08),rgba(139,92,246,.1));border-radius:26px}
+.cbox h2{font-size:clamp(2rem,5vw,3.2rem)}
+.cbox .lead{margin-inline:auto;margin-bottom:36px}
+.clist{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;max-width:900px;margin:0 auto;text-align:left}
+.clist a{padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:rgba(10,11,15,.5);transition:.25s;display:block;overflow-wrap:anywhere}
+.clist a:hover{border-color:var(--cy);transform:translateY(-3px)}
+.clist small{display:block;font:.72rem var(--mono);color:var(--cy);margin-bottom:4px}
+footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:var(--mu);font-size:.85rem}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+@media(max-width:900px){
+ section{padding:72px 0}
+ .hgrid,.about,.projects,.exp{grid-template-columns:1fr}
+ .vis{order:-1}.hgrid{gap:36px}
+ .hero{min-height:0;padding-top:40px}
+ .burger{display:block}
+ .links{position:absolute;top:66px;left:0;right:0;flex-direction:column;background:rgba(10,11,15,.97);border-bottom:1px solid var(--line);padding:10px 20px 18px;display:none}
+ .links.open{display:flex}.links a{padding:14px}
+ .hero .txt{text-align:center}.sub{margin-inline:auto}.ctas{justify-content:center}.hterm{margin-inline:auto}
+ .proj.side{grid-column:auto}
+}
+@media(max-width:480px){.ctas .btn{flex:1 1 calc(50% - 6px);justify-content:center;padding-inline:14px}.term pre{font-size:.74rem}.ti,.exp{padding:20px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv,.term .ln{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="sr" href="#main">Skip to content</a>
+<header>
+ <nav class="wrap" aria-label="Main">
+  <a class="logo" href="#top" aria-label="Home"><b>&lt;/&gt;</b> pasindu.milinda</a>
+  <button class="burger" aria-expanded="false" aria-controls="links" aria-label="Toggle menu"><i></i><i></i><i></i></button>
+  <ul class="links" id="links">
+   <li><a href="#about"><span>01</span>About</a></li>
+   <li><a href="#stack"><span>02</span>Stack</a></li>
+   <li><a href="#work"><span>03</span>Work</a></li>
+   <li><a href="#journey"><span>04</span>Journey</a></li>
+   <li><a href="#contact"><span>05</span>Contact</a></li>
+  </ul>
+ </nav>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+ <div class="wrap hgrid">
+  <div class="txt">
+   <p class="name">R.M. PASINDU MILINDA BANDARA</p>
+   <p class="role">QA Automation Engineer in Progress</p>
+   <h1>Testing with precision.<br><em>Building with purpose.</em></h1>
+   <p class="sub">Software Engineering undergraduate focused on UI automation, REST API testing and maintainable test automation frameworks.</p>
+   <div class="ctas">
+    <a class="btn p" href="#work">View Projects</a>
+    <a class="btn" href="https://github.com/Pasindu-002" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/pasindu-milinda-6b39a2336/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="#contact">Contact Me</a>
+   </div>
+   <div class="term hterm" role="img" aria-label="Code panel showing profile configuration">
+    <div class="tbar"><i></i><i></i><i></i><span>profile.config</span></div>
+<pre id="code"><span class="ln c">// profile.config</span>
+<span class="ln"><span class="k">const</span> engineer = {</span>
+<span class="ln">  name: <span class="s">"Pasindu Milinda"</span>,</span>
+<span class="ln">  role: <span class="s">"QA Automation"</span>,</span>
+<span class="ln">  graduation: <span class="s">"2027"</span>,</span>
+<span class="ln">  focus: [</span>
+<span class="ln">    <span class="s">"Selenium"</span>,</span>
+<span class="ln">    <span class="s">"REST Assured"</span>,</span>
+<span class="ln">    <span class="s">"TestNG"</span></span>
+<span class="ln">  ]</span>
+<span class="ln">};<span class="cur"></span></span></pre>
+   </div>
+  </div>
+  <div class="vis">
+   <div class="photo"><div><span aria-hidden="true">PM</span><img id="pp" src="profile.jpeg" alt="Portrait of Pasindu Milinda" onerror="this.remove()"></div></div>
+  </div>
+ </div>
+</section>
+
+<section id="about">
+ <div class="wrap">
+  <span class="tag-l">01 / About</span>
+  <h2 class="rv">Software Engineering undergraduate, building practical QA skills.</h2>
+  <p class="lead rv">I'm developing hands-on QA automation skills through framework projects and structured training.</p>
+  <div class="about">
+   <div class="glass rv">
+    <p>I'm pursuing a BSc (Hons) in Software Engineering at NSBM Green University, with expected graduation in 2027 and a GPA of 3.66.</p>
+    <p>My career direction is QA Automation and Software Testing. I'm particularly interested in UI test automation, API testing, test automation frameworks, software quality, reliable and maintainable automated tests, and continuous integration.</p>
+    <p>I'm focused on learning modern QA engineering practices and applying them in projects I build and share on GitHub.</p>
+   </div>
+   <ul class="glass facts rv" style="padding:30px">
+    <li><small>UNIVERSITY</small>NSBM Green University</li>
+    <li><small>DEGREE</small>BSc (Hons) Software Engineering</li>
+    <li><small>EXPECTED GRADUATION</small>2027</li>
+    <li><small>GPA</small>3.66</li>
+    <li><small>LOCATION</small>Homagama, Sri Lanka</li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<section id="stack">
+ <div class="wrap">
+  <span class="tag-l">02 / Technical Stack</span>
+  <h2 class="rv">Tools I work with.</h2>
+  <p class="lead rv">Grouped by how I use them in automation work.</p>
+  <div class="grid4">
+   <div class="glass cat rv"><h3>UI AUTOMATION</h3><ul class="chips"><li>Selenium WebDriver</li><li>TestNG</li><li>POM</li><li>Explicit Waits</li><li>Playwright Basics</li></ul></div>
+   <div class="glass cat rv"><h3>API TESTING</h3><ul class="chips"><li>REST Assured</li><li>Postman</li><li>JSON</li><li>Jackson</li><li>API Validation</li></ul></div>
+   <div class="glass cat rv"><h3>PROGRAMMING</h3><ul class="chips"><li>Java</li><li>Python</li><li>JavaScript</li><li>C</li><li>C#</li></ul></div>
+   <div class="glass cat rv"><h3>TOOLS &amp; ENGINEERING</h3><ul class="chips"><li>Maven</li><li>Git</li><li>GitHub</li><li>GitHub Actions</li><li>Allure</li><li>Jira</li><li>SQL</li><li>IntelliJ IDEA</li><li>VS Code</li></ul></div>
+  </div>
+
+  <div style="margin-top:88px">
+   <span class="tag-l">QA Automation Focus</span>
+   <h2 class="rv">What I'm focused on.</h2>
+   <p class="lead rv">The areas I'm practising through my projects and training.</p>
+   <div class="grid3">
+    <div class="glass focus rv"><div class="ic">UI</div><h3>UI test automation</h3><p>Selenium WebDriver with TestNG, Page Object Model and reusable explicit-wait utilities.</p></div>
+    <div class="glass focus rv"><div class="ic">API</div><h3>API testing</h3><p>REST Assured and Postman for status code, content type and JSON response validation.</p></div>
+    <div class="glass focus rv"><div class="ic">FW</div><h3>Test automation frameworks</h3><p>Modular structure that separates tests, configuration, payloads, routes and utilities.</p></div>
+    <div class="glass focus rv"><div class="ic">DD</div><h3>Data-driven testing</h3><p>TestNG DataProvider and JSON test data to cover multiple scenarios with one test.</p></div>
+    <div class="glass focus rv"><div class="ic">CI</div><h3>Continuous integration</h3><p>GitHub Actions to run automated tests, with Allure reports and failure screenshots.</p></div>
+    <div class="glass focus rv"><div class="ic">QA</div><h3>Reliable, maintainable tests</h3><p>Explicit waits, reusable components and clear structure to keep tests readable and stable.</p></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="work">
+ <div class="wrap">
+  <span class="tag-l">03 / Work</span>
+  <h2 class="rv">Projects.</h2>
+  <p class="lead rv">Two automation frameworks aimed at my QA career, plus a supporting full-stack project.</p>
+  <div class="projects">
+   <article class="glass proj main rv">
+    <div class="ph"><span class="num">01</span><span class="type">UI Automation Framework</span></div>
+    <h3>Selenium Automation Framework — SauceDemo</h3>
+    <p>A modular Selenium WebDriver automation framework built with Java, TestNG, Maven and the Page Object Model.</p>
+    <div class="tags"><span>Java</span><span>Selenium WebDriver</span><span>TestNG</span><span>Maven</span><span>POM</span><span>Allure</span><span>GitHub Actions</span></div>
+    <ul class="feat">
+     <li>Automated valid login, invalid login and locked-out user scenarios</li>
+     <li>TestNG DataProvider for data-driven testing</li>
+     <li>Reusable explicit-wait utilities</li>
+     <li>Driver management and configuration handling</li>
+     <li>TestNG listeners and failure screenshot utilities</li>
+     <li>Allure reporting and GitHub Actions CI execution</li>
+    </ul>
+    <p class="note">Current scope is focused primarily on authentication and login scenarios.</p>
+    <a class="btn p" style="margin-top:22px" href="https://github.com/Pasindu-002/selenium-automation-framework-saucedemo" target="_blank" rel="noopener">View on GitHub</a>
+   </article>
+
+   <article class="glass proj main rv">
+    <div class="ph"><span class="num">02</span><span class="type">API Automation Framework</span></div>
+    <h3>REST API Automation Framework</h3>
+    <p>A reusable REST API automation framework with a modular architecture designed for maintainable API testing.</p>
+    <div class="tags"><span>Java</span><span>REST Assured</span><span>TestNG</span><span>Maven</span><span>Jackson</span></div>
+    <ul class="feat">
+     <li>GET, POST, PUT, PATCH and DELETE testing</li>
+     <li>HTTP status-code, content-type and JSON response validation</li>
+     <li>JSON test data with Jackson POJO serialization/deserialization</li>
+     <li>Reusable request/response specifications and route management</li>
+     <li>Configuration management, payload/model organization and utility classes</li>
+     <li>Separate test, configuration, payload, route, specification and utility layers</li>
+    </ul>
+    <a class="btn p" style="margin-top:auto" href="https://github.com/Pasindu-002/api-automation-framework" target="_blank" rel="noopener">View on GitHub</a>
+   </article>
+
+   <article class="glass proj side rv">
+    <div class="ph"><span class="num">03</span><span class="type">Supporting Project · Web Application</span></div>
+    <h3>Student Management System</h3>
+    <p>A web-based student management system demonstrating backend development, database integration and CRUD functionality.</p>
+    <div class="tags"><span>PHP</span><span>MySQL</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Bootstrap</span></div>
+    <ul class="feat">
+     <li>Administrator login/logout with PHP session-based authentication</li>
+     <li>Add, edit and delete student records, with search</li>
+     <li>MySQL integration using prepared SQL statements</li>
+     <li>Password hashing and verification</li>
+     <li>Session-based access protection</li>
+     <li>Responsive Bootstrap interface</li>
+    </ul>
+    <a class="btn" href="https://github.com/Pasindu-002/StudentManagementSystem" target="_blank" rel="noopener">View on GitHub</a>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section id="journey">
+ <div class="wrap">
+  <span class="tag-l">04 / Journey</span>
+  <h2 class="rv">Education &amp; training.</h2>
+  <p class="lead rv">Formal study alongside focused QA automation training.</p>
+  <div class="tl">
+   <div class="glass ti rv"><span class="st">Expected 2027</span><small>2027</small><h3>BSc (Hons) Software Engineering</h3><p>NSBM Green University · GPA: 3.66</p></div>
+   <div class="glass ti rv"><span class="st">Completed</span><small>Online Learning Programme</small><h3>Introduction to Software Quality Assurance</h3><p>University of Moratuwa</p></div>
+   <div class="glass ti go rv"><span class="st on">Ongoing</span><small>Training Programme</small><h3>Test Automation Engineering Programme</h3><p>NextGen QA Academy</p></div>
+   <div class="glass ti rv"><span class="st">Completed</span><small>Levels 1–4</small><h3>ICT Training</h3><p>Nenasala Training Center, Mirahawaththa · Upper Merit Pass</p></div>
+  </div>
+
+  <h3 class="sub2">Experience</h3>
+  <div class="glass exp rv">
+   <div><h3>Customer Service Representative</h3><p>Pizza Hut — Gamma Pizzakraft Lanka (Pvt) Ltd</p><p style="font:.78rem var(--mono);color:var(--cy);margin-top:6px">1 year · Part-time</p></div>
+   <ul class="chips"><li>Customer communication</li><li>Teamwork</li><li>Responsibility</li><li>Service quality</li><li>Fast-paced environment</li></ul>
+  </div>
+  <p class="langs"><b>Languages:</b> Sinhala · English</p>
+ </div>
+</section>
+
+<section class="contact" id="contact">
+ <div class="wrap">
+  <div class="glass cbox rv">
+   <span class="tag-l">05 / Contact</span>
+   <h2>Let's build quality into software.</h2>
+   <p class="lead">I’m looking for a QA Automation internship where I can contribute, learn from experienced engineers and grow through real-world testing challenges.</p>
+   <div class="clist">
+    <a href="mailto:pasindu.milinda200@gmail.com"><small>EMAIL</small>pasindu.milinda200@gmail.com</a>
+    <a href="https://github.com/Pasindu-002" target="_blank" rel="noopener"><small>GITHUB</small>github.com/Pasindu-002</a>
+    <a href="https://www.linkedin.com/in/pasindu-milinda-6b39a2336/" target="_blank" rel="noopener"><small>LINKEDIN</small>in/pasindu-milinda</a>
+    <a href="tel:+94760390923"><small>PHONE</small>076 039 0923</a>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer><div class="wrap">© <span id="yr"></span> R.M. Pasindu Milinda Bandara · Homagama, Sri Lanka</div></footer>
+
+<script>
+/* PROFILE PHOTO: use a file name (e.g. "profile.jpeg") or a full image link (e.g. "https://.../me.jpg") */
+var PROFILE_PHOTO="profile.jpeg";
+(function(){
+ var pp=document.getElementById('pp'),alts=["profile.jpg","profile.png","profile.webp"];
+ pp.onerror=function(){var n=alts.shift();if(n&&PROFILE_PHOTO==="profile.jpeg")pp.src=n;else pp.remove()};
+ pp.src=PROFILE_PHOTO;
+ var b=document.querySelector('.burger'),l=document.getElementById('links');
+ function close(){l.classList.remove('open');b.setAttribute('aria-expanded','false')}
+ b.addEventListener('click',function(){var o=l.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+ l.addEventListener('click',function(e){if(e.target.closest('a'))close()});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+ document.getElementById('yr').textContent=new Date().getFullYear();
+ // terminal lines
+ var lines=[].slice.call(document.querySelectorAll('#code .ln')),i=0;
+ (function t(){if(i<lines.length){lines[i++].classList.add('in');setTimeout(t,260)}})();
+ // reveal
+ var rv=document.querySelectorAll('.rv');
+ if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  rv.forEach(function(x){io.observe(x)});
+  // active nav
+  var map={};document.querySelectorAll('.links a').forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
+  var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){Object.keys(map).forEach(function(k){map[k].classList.toggle('on',k===e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+  Object.keys(map).forEach(function(k){var s=document.getElementById(k);if(s)so.observe(s)});
+ }else{rv.forEach(function(x){x.classList.add('in')})}
+})();
+</script>
+</body>
+</html>
